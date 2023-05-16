@@ -42,6 +42,19 @@
 
 
 \begin{frame}
+	\frametitle{Homework 1}
+	\framesubtitle{Deadline: Thursday 2023-05-25 at 14:45}
+	
+	Please do not send me scans.
+	\begin{itemize}
+	\item You can typeset it and send it to my e-mail\footnote{martin.dvorak@ista.ac.at}.
+	\item You can bring your hand-written solution to the lecture.
+	\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
 	\frametitle{Linear equalities versus inequalities}
 	\framesubtitle{Remark about Rouché-Capelli theorem}
 	
@@ -223,20 +236,21 @@
 
 
 \begin{frame}
-	\frametitle{Strong duality}
+	\frametitle{Strong duality theorem}
 	\framesubtitle{Let's outline the proof for the bounded case using Farkas' lemma (III)}
 	
-	We have $E \in \mathbb{R}^{m \times n}$ and $d \in \mathbb{R}^{m}$.
+	%Let's rename stuff.
+	We have $E \in \mathbb{R}^{m' \times n'}$ and $d \in \mathbb{R}^{m'}$.
 	\smallskip
 
 	Exactly one of the following statements is true:
 	\begin{itemize} \color{dblue}
-		\item $\exists \bold{w} \in \mathbb{R}^{n} : \ \; E\. \bold{w} \le d \aand \bold{w} \ge \bold{0}$
-		\item $\exists \bold{z} \in \mathbb{R}^{m} : \ \; E^{\!\top} \bold{z} \ge \bold{0} \aand d^{\!\top} \bold{z} < 0 \aand \bold{z} \ge \bold{0}$
+		\item $\exists \bold{z} \in \mathbb{R}^{n'} : \ \; E\. \bold{z} \le d \aand \bold{z} \ge \bold{0}$
+		\item $\exists \bold{w} \in \mathbb{R}^{m'} : \ \; E^{\!\top} \bold{w} \ge \bold{0} \aand d^{\!\top} \bold{w} < 0 \aand \bold{w} \ge \bold{0}$
 	\end{itemize}
 	\bigskip
 
-	LP duality (III):
+	LP duality (III): Let $A \in \mathbb{R}^{m \times n}$, $b \in \mathbb{R}^{m}$, $c \in \mathbb{R}^{n}$ \dots
 	\bigskip
 
 	\begin{columns} 
@@ -272,9 +286,10 @@
 	\frametitle{Systems of linear equalities versus inequalities}
 	\framesubtitle{Complexity over rationals versus integers}
 
-	\onslide<2->{{\color{dgreen}Green color} denotes that the problem can be solved in deterministic polynomial time.} \bigskip
+	\onslide<2->{{\color{dgreen}Green color} denotes that the problem is in \textbf{P} (i.e., can be solved in deterministic polynomial time).} \bigskip
 	\bigskip
 	
+	\renewcommand{\arraystretch}{1.2}
 	\begin{tabular}{ | c | c | c | }
 		\hline
 		Domain & Equalities & Inequalities \\

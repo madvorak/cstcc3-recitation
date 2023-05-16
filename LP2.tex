@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage{multicol}
 \usepackage{xcolor}
+\usepackage{arydshln}
 
 \definecolor{dgreen}{HTML}{005500}
 \definecolor{dblue}{HTML}{000088}
@@ -283,26 +284,64 @@
 
 
 \begin{frame}
-	\frametitle{Systems of linear equalities versus inequalities}
-	\framesubtitle{Complexity over rationals versus integers}
+	\frametitle{Strong duality theorem}
+	\framesubtitle{Idea of the proof for the bounded case}
+	
+	%Let's rename stuff.
+	We have $E \in \mathbb{R}^{m' \times n'}$ and $d \in \mathbb{R}^{m'}$.
+	\smallskip
 
-	\onslide<2->{{\color{dgreen}Green color} denotes that the problem is in \textbf{P} (i.e., can be solved in deterministic polynomial time).} \bigskip
+	Exactly one of the following statements is true:
+	\begin{itemize} \color{dblue}
+		\item $\exists \bold{z} \in \mathbb{R}^{n'} : \ \; E\. \bold{z} \le d \aand \bold{z} \ge \bold{0}$
+		\item $\exists \bold{w} \in \mathbb{R}^{m'} : \ \; E^{\!\top} \bold{w} \ge \bold{0} \aand d^{\!\top} \bold{w} < 0 \aand \bold{w} \ge \bold{0}$
+	\end{itemize}
 	\bigskip
-	
-	\renewcommand{\arraystretch}{1.2}
-	\begin{tabular}{ | c | c | c | }
-		\hline
-		Domain & Equalities & Inequalities \\
-		\hline
-		$\mathbb{Q}^n$ & \onslide<2->{\color{dgreen}{Gaussian elimination}} & \onslide<3->{\color{dgreen}{Ellipsoid method}} \\ 
-		\hline
-		$\mathbb{Z}^n$ & \onslide<4->{\color{dgreen}{Hermite normal form}} & \onslide<5->{\color{dred}{NP-complete}} \\
-		\hline
-	\end{tabular}
+
+	LP duality (III): Let $A \in \mathbb{R}^{m \times n}$, $b \in \mathbb{R}^{m}$, $c \in \mathbb{R}^{n}$ \dots
 	\bigskip
-	\bigskip
-	
-	\onslide<6->{Exercise: Construct a polynomial reduction from {\color{dred}3-SAT} to {\color{dred}ILP}.}
+
+	\begin{columns}
+		\begin{column}{0.31\textwidth}
+		Primal problem:
+		$$
+		\begin{array}{lrcrcl}
+			\text{minimize} & c^{\!\top}\bold{x} \\
+			\text{s.\.t.} & A\. \bold{x} \ge b \\
+			\text{where} & \bold{x} \ge \bold{0}
+		\end{array}
+		$$
+		\end{column}
+
+		\begin{column}{0.34\textwidth} \color{dgreen} \renewcommand{\arraystretch}{1.2}
+		$\begin{array}{c}
+		E := \left(
+		\begin{array}{c}
+		A^\top \\ \hdashline[2pt/1pt]
+		-b^\top \\
+		\end{array}
+		\right)
+		\\
+		d :=\left(
+		\begin{array}{c}
+		c \\ \hdashline[2pt/1pt]
+		- \min c^{\!\top}\bold{x} \\
+		\end{array}
+		\right)
+		\end{array}$
+		\end{column}
+
+		\begin{column}{0.35\textwidth}
+		Dual problem:
+		$$
+		\begin{array}{lrcrcl}
+			\text{maximize} & b^{\!\top}\bold{y} \\
+			\text{s.\.t.} & A^{\!\top} \bold{y} \le c \\
+			\text{where} & \bold{y} \ge \bold{0}
+		\end{array}
+		$$
+		\end{column}
+	\end{columns}
 	
 \end{frame}
 
